@@ -1,0 +1,59 @@
+using System;
+
+namespace RockPaperScissors.Test
+{
+    public class GameTests
+    {
+        public static void TestInvalidMovesNotCounted()
+        {
+            SpyGameListener listener = new SpyGameListener();
+            var game = new Game(listener);
+            try
+            {
+                game.PlayRound("Blah", "Foo");
+                game.PlayRound("Rock", "Scissors");
+            }
+            catch (Exception e)
+            {
+            }
+
+            var result = listener.Winner;
+            Assert.Equals(result, 0, "Invalid moves not counted");
+        }
+
+        public static void TestDrawsNotCounted()
+        {
+            SpyGameListener listener = new SpyGameListener();
+            var game = new Game(listener);
+            game.PlayRound("Rock", "Rock");
+            game.PlayRound("Rock", "Rock");
+
+            var result = listener.Winner;
+            Assert.Equals(result, 0, "Draw not counted");
+        }
+
+        public static void TestPlayerTwoWinsGame()
+        {
+            SpyGameListener listener = new SpyGameListener();
+            var game = new Game(listener);
+            game = new Game(listener);
+            game.PlayRound("Rock", "Paper");
+            game.PlayRound("Rock", "Paper");
+
+            var result = listener.Winner;
+            Assert.Equals(result, 2, "Player2 wins game");
+        }
+
+        public static void TestPlayerOneWinsGame()
+        {
+            // player 1 wins game
+            var listener = new SpyGameListener();
+            var game = new Game(listener);
+            game.PlayRound("Rock", "Scissors");
+            game.PlayRound("Rock", "Scissors");
+
+            var result = listener.Winner;
+            Assert.Equals(result, 1, "Player1 wins game");
+        }
+    }
+}
