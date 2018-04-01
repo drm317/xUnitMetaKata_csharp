@@ -1,6 +1,6 @@
-﻿namespace RockPaperScissors.Test
+﻿namespace RockPaperScissors
 {
-    internal class SpyGameListener : IGameListener
+    public class SpyGameListener : IGameListener
     {
         public int Winner { get; private set; }
 

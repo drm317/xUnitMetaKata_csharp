@@ -1,4 +1,5 @@
 using System;
+using TestFramework;
 
 namespace RockPaperScissors.Test
 {

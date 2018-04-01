@@ -2,17 +2,19 @@
 using System.Linq;
 using System.Reflection;
 
-namespace RockPaperScissors.Test
+namespace TestFramework
 {
     public class TestSuite
     {
         private static int _testsPassed;
         private static int _testsFailed;
+        private readonly Assembly _assembly;
 
-        public TestSuite()
+        public TestSuite(Assembly assembly)
         {
             _testsFailed = 0;
             _testsPassed = 0;
+            _assembly = assembly;
         }
 
         public void RunAll()
@@ -24,7 +26,7 @@ namespace RockPaperScissors.Test
 
         private void RunTestFixtures()
         {
-            foreach (var type in Assembly.GetExecutingAssembly().ExportedTypes.Where(IsFixture))
+            foreach (var type in _assembly.ExportedTypes.Where(IsFixture))
             {
                 new TestRunner(Activator.CreateInstance(type)).RunAll();
             }

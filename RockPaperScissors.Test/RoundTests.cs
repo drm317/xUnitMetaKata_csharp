@@ -1,4 +1,5 @@
 using System;
+using TestFramework;
 
 namespace RockPaperScissors.Test
 {
@@ -17,7 +18,7 @@ namespace RockPaperScissors.Test
                 exception = e;
             }
 
-            Assert.Throws(exception, "Invalid inputs not allowed");
+            Assert.Throws(exception?.GetType(), typeof(InvalidMoveException), "Invalid inputs not allowed");
         }
 
         public void TestRoundIsADraw()

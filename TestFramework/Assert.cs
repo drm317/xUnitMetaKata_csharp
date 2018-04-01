@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace RockPaperScissors.Test
+namespace TestFramework
 {
     public class Assert
     {
-        public static void Throws(Exception exception, string testCase)
+        public static void Throws(Type exception, Type expectedException, string testCase)
         {
-            if (exception is InvalidMoveException)
+            if (expectedException == exception)
             {
                 TestSuite.AddTestsPassed();
                 Console.WriteLine("{0}: PASS", testCase);

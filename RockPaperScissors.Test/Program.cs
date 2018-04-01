@@ -1,13 +1,15 @@
 ﻿using System;
+using System.Reflection;
+using TestFramework;
 
 namespace RockPaperScissors.Test
 {
-    internal class Program
+    public class Program
     {
         private static void Main(string[] args)
         {            
             Console.WriteLine("Running RockPaperScissors tests...");
-            new TestSuite().RunAll();          
+            new TestSuite(Assembly.LoadFrom("RockPaperScissors.Test.exe")).RunAll();          
             Console.ReadLine();
         }
     }
