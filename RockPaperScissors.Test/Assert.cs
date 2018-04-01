@@ -8,12 +8,12 @@ namespace RockPaperScissors.Test
         {
             if (exception is InvalidMoveException)
             {
-                Program.AddTestsPassed();
+                TestSuite.AddTestsPassed();
                 Console.WriteLine("{0}: PASS", testCase);
             }
             else
             {
-                Program.AddTestsFailed();
+                TestSuite.AddTestsFailed();
                 Console.WriteLine("{0}: FAIL - expected InvalidMoveException", testCase);
             }
         }
@@ -22,12 +22,12 @@ namespace RockPaperScissors.Test
         {
             if (result == expected)
             {
-                Program.AddTestsPassed();
+                TestSuite.AddTestsPassed();
                 Console.WriteLine("{0}: PASS", testCase);
             }
             else
             {
-                Program.AddTestsFailed();
+                TestSuite.AddTestsFailed();
                 Console.WriteLine("{0}: FAIL - expected {1} but was {2}", result, expected, testCase);
             }
         }
