@@ -4,7 +4,7 @@ namespace RockPaperScissors.Test
 {
     public class RoundTests
     {
-        public static void TestInvalidInputsNotAllowed()
+        public void TestInvalidInputsNotAllowed()
         {
             Exception exception = null;
 
@@ -20,7 +20,7 @@ namespace RockPaperScissors.Test
             Assert.Throws(exception, "Invalid inputs not allowed");
         }
 
-        public static void TestRoundIsADraw()
+        public void TestRoundIsADraw()
         {
             var result = new Round().Play("Rock", "Rock");
             Assert.Equals(result, 0, "Round is a draw (Rock Rock)");
@@ -32,7 +32,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 0, "Round is a draw (Paper Paper)");
         }
 
-        public static void TestPaperWrapsRock()
+        public void TestPaperWrapsRock()
         {
             var result = new Round().Play("Paper", "Rock");
             Assert.Equals(result, 1, "Paper wraps rock (Paper rock)");
@@ -41,7 +41,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 2, "Paper wraps rock (Rock Paper)");
         }
 
-        public static void TestScissorsCutPaper()
+        public void TestScissorsCutPaper()
         {
             var result = new Round().Play("Scissors", "Paper");
             Assert.Equals(result, 1, "Scissors cut paper (Scissors Paper)");
@@ -50,7 +50,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 2, "Scissors cut paper (Paper Scissors)");
         }
 
-        public static void TestRockBluntsScissors()
+        public void TestRockBluntsScissors()
         {
             var result = new Round().Play("Rock", "Scissors");
             Assert.Equals(result, 1, "Rock blunts scissors (Rock Scissors)");

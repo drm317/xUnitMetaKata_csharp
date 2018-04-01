@@ -4,7 +4,7 @@ namespace RockPaperScissors.Test
 {
     public class GameTests
     {
-        public static void TestInvalidMovesNotCounted()
+        public void TestInvalidMovesNotCounted()
         {
             SpyGameListener listener = new SpyGameListener();
             var game = new Game(listener);
@@ -21,7 +21,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 0, "Invalid moves not counted");
         }
 
-        public static void TestDrawsNotCounted()
+        public void TestDrawsNotCounted()
         {
             SpyGameListener listener = new SpyGameListener();
             var game = new Game(listener);
@@ -32,7 +32,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 0, "Draw not counted");
         }
 
-        public static void TestPlayerTwoWinsGame()
+        public void TestPlayerTwoWinsGame()
         {
             SpyGameListener listener = new SpyGameListener();
             var game = new Game(listener);
@@ -44,7 +44,7 @@ namespace RockPaperScissors.Test
             Assert.Equals(result, 2, "Player2 wins game");
         }
 
-        public static void TestPlayerOneWinsGame()
+        public void TestPlayerOneWinsGame()
         {
             // player 1 wins game
             var listener = new SpyGameListener();

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
 
 namespace RockPaperScissors.Test
 {
@@ -15,36 +17,22 @@ namespace RockPaperScissors.Test
 
         public void RunAll()
         {
-            RoundTests();
-
-            GameTests();
+            RunTestFixtures();
 
             Console.WriteLine("Tests run: {0}  Passed: {1}  Failed: {2}", _testsPassed + _testsFailed, _testsPassed, _testsFailed);
         }
 
-        private void GameTests()
+        private void RunTestFixtures()
         {
-            Test.GameTests.TestPlayerOneWinsGame();
-
-            Test.GameTests.TestPlayerTwoWinsGame();
-
-            Test.GameTests.TestDrawsNotCounted();
-
-            Test.GameTests.TestInvalidMovesNotCounted();
+            foreach (var type in Assembly.GetExecutingAssembly().ExportedTypes.Where(IsFixture))
+            {
+                new TestRunner(Activator.CreateInstance(type)).RunAll();
+            }
         }
 
-        private void RoundTests()
+        private bool IsFixture(Type type)
         {
-
-            Test.RoundTests.TestRockBluntsScissors();
-
-            Test.RoundTests.TestScissorsCutPaper();
-
-            Test.RoundTests.TestPaperWrapsRock();
-
-            Test.RoundTests.TestRoundIsADraw();
-
-            Test.RoundTests.TestInvalidInputsNotAllowed();
+            return type.Name.EndsWith("Tests");
         }
 
         public static void AddTestsFailed()
