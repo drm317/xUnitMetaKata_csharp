@@ -2,7 +2,7 @@
 
 namespace RockPaperScissors.Test
 {
-    internal class TestRunner
+    public class TestRunner
     {
         private readonly object _testFixture;
 
@@ -13,7 +13,7 @@ namespace RockPaperScissors.Test
 
         public void RunAll()
         {
-            foreach (MethodInfo method in _testFixture.GetType().GetMethods())
+            foreach (var method in _testFixture.GetType().GetMethods())
             {
                 if (IsTest(method))
                 {
@@ -27,7 +27,7 @@ namespace RockPaperScissors.Test
             method.Invoke(_testFixture, null);
         }
 
-        private bool IsTest(MethodInfo method)
+        private static bool IsTest(MethodInfo method)
         {
             return method.Name.StartsWith("Test");
         }

@@ -28,7 +28,7 @@ namespace RockPaperScissors.Test
             else
             {
                 TestSuite.AddTestsFailed();
-                Console.WriteLine("{0}: FAIL - expected {1} but was {2}", result, expected, testCase);
+                Console.WriteLine("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
             }
         }
     }

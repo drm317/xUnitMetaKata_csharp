@@ -11,6 +11,4 @@ namespace RockPaperScissors.Test
             Console.ReadLine();
         }
     }
-
-
 }
