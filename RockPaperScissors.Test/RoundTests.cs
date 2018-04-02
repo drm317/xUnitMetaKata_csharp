@@ -21,42 +21,79 @@ namespace RockPaperScissors.Test
             Assert.Throws(exception?.GetType(), typeof(InvalidMoveException), "Invalid inputs not allowed");
         }
 
-        public void TestRoundIsADraw()
+        private object[] Parameters_TestRoundIsADraw()
         {
-            var result = new Round().Play(Player.Rock, Player.Rock);
+            return new object[]
+            {
+                Player.Rock,
+                Player.Scissors,
+                Player.Paper
+            };
+        }
+
+        public void TestRoundIsADraw(Player playerRock, Player playerScissors, Player playerPaper)
+        {
+            var result = new Round().Play(playerRock, playerRock);
             Assert.Equals(result, 0, "Round is a draw (Rock Rock)");
 
-            result = new Round().Play(Player.Scissors, Player.Scissors);
+            result = new Round().Play(playerScissors, playerScissors);
             Assert.Equals(result, 0, "Round is a draw (Scissors Scissors)");
 
-            result = new Round().Play(Player.Paper, Player.Paper);
+            result = new Round().Play(playerPaper, playerPaper);
             Assert.Equals(result, 0, "Round is a draw (Paper Paper)");
         }
 
-        public void TestPaperWrapsRock()
+        private object[] Parameters_TestPaperWrapsRock()
         {
-            var result = new Round().Play(Player.Paper, Player.Rock);
+            return new object[]
+            {
+                Player.Paper,
+                Player.Rock
+            };
+        }
+
+        public void TestPaperWrapsRock(Player playerPaper, Player playerRock)
+        {
+            var result = new Round().Play(playerPaper, playerRock);
             Assert.Equals(result, 1, "Paper wraps rock (Paper rock)");
 
-            result = new Round().Play(Player.Rock, Player.Paper);
+            result = new Round().Play(playerRock, playerPaper);
             Assert.Equals(result, 2, "Paper wraps rock (Rock Paper)");
         }
 
-        public void TestScissorsCutPaper()
+        private object[] Parameters_TestScissorsCutPaper()
         {
-            var result = new Round().Play(Player.Scissors, Player.Paper);
+            return new object[]
+            {
+                Player.Scissors,
+                Player.Paper
+            };
+        }
+
+        public void TestScissorsCutPaper(Player playerScissors, Player playerPaper)
+        {
+            var result = new Round().Play(playerScissors, playerPaper);
             Assert.Equals(result, 1, "Scissors cut paper (Scissors Paper)");
 
-            result = new Round().Play(Player.Paper, Player.Scissors);
+            result = new Round().Play(playerPaper, playerScissors);
             Assert.Equals(result, 2, "Scissors cut paper (Paper Scissors)");
         }
 
-        public void TestRockBluntsScissors()
+        private object[] Parameters_TestRockBluntsScissors()
         {
-            var result = new Round().Play(Player.Rock, Player.Scissors);
+            return new object[]
+            {
+                Player.Rock,
+                Player.Scissors
+            };
+        }
+
+        public void TestRockBluntsScissors(Player playerRock, Player playerScissors)
+        {
+            var result = new Round().Play(playerRock, playerScissors);
             Assert.Equals(result, 1, "Rock blunts scissors (Rock Scissors)");
 
-            result = new Round().Play(Player.Scissors, Player.Rock);
+            result = new Round().Play(playerScissors, playerRock);
             Assert.Equals(result, 2, "Rock blunts scissors (Scissors Rock)");
         }
     }

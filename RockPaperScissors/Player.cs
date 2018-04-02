@@ -19,13 +19,13 @@
 
         public int PlayHands(Player player2)
         {
-            if (player2 == _wins)
-            {
-                return 1;
-            }
             if (player2 == this)
             {
                 return 0;
+            }
+            if (player2 == _wins)
+            {
+                return 1;
             }
 
             return 2;
