@@ -24,7 +24,25 @@ namespace TestFramework
 
         private void InvokeTest(MethodInfo method)
         {
-            method.Invoke(_testFixture, null);
+            if (IsParameterised(method))
+            {
+                MethodInfo parametersMethod = _testFixture.GetType().GetMethod("Parameters_" + method.Name, BindingFlags.NonPublic | BindingFlags.Instance);
+                if (parametersMethod != null)
+                {
+                    object[] parameters = (object[]) parametersMethod.Invoke(_testFixture, null);
+                    method.Invoke(_testFixture, parameters);
+                }
+            }
+            else
+            {
+                method.Invoke(_testFixture, null);
+            }
+            
+        }
+
+        private bool IsParameterised(MethodInfo method)
+        {
+            return method.GetParameters().Length > 0;
         }
 
         private static bool IsTest(MethodInfo method)

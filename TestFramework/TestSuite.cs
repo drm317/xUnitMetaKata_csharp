@@ -26,13 +26,13 @@ namespace TestFramework
 
         private void RunTestFixtures()
         {
-            foreach (var type in _assembly.ExportedTypes.Where(IsFixture))
+            foreach (var type in _assembly.ExportedTypes.Where(IsTest))
             {
                 new TestRunner(Activator.CreateInstance(type)).RunAll();
             }
         }
 
-        private bool IsFixture(Type type)
+        private bool IsTest(Type type)
         {
             return type.Name.EndsWith("Tests");
         }
