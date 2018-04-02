@@ -6,7 +6,7 @@
         public static Player Scissors;
         public static Player Rock;
         private Player _wins;
-        private string _name;
+        private string _hand;
 
         static Player()
         {
@@ -18,9 +18,9 @@
             Scissors._wins = Paper;
         }
 
-        public Player(string name)
+        public Player(string hand)
         {
-            _name = name;
+            _hand = hand;
         }
 
         public int PlayHands(Player player2)
