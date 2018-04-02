@@ -11,8 +11,8 @@ namespace RockPaperScissors.Test
             var game = new Game(listener);
             try
             {
-                game.PlayRound("Blah", "Foo");
-                game.PlayRound("Rock", "Scissors");
+                game.PlayRound(null, null);
+                game.PlayRound(Player.Rock, Player.Scissors);
             }
             catch (Exception e)
             {
@@ -26,8 +26,8 @@ namespace RockPaperScissors.Test
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
-            game.PlayRound("Rock", "Rock");
-            game.PlayRound("Rock", "Rock");
+            game.PlayRound(Player.Rock, Player.Rock);
+            game.PlayRound(Player.Rock, Player.Rock);
 
             var result = listener.Winner;
             Assert.Equals(result, 0, "Draw not counted");
@@ -37,9 +37,8 @@ namespace RockPaperScissors.Test
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
-            game = new Game(listener);
-            game.PlayRound("Rock", "Paper");
-            game.PlayRound("Rock", "Paper");
+            game.PlayRound(Player.Rock, Player.Paper);
+            game.PlayRound(Player.Rock, Player.Paper);
 
             var result = listener.Winner;
             Assert.Equals(result, 2, "Player2 wins game");
@@ -49,8 +48,8 @@ namespace RockPaperScissors.Test
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
-            game.PlayRound("Rock", "Scissors");
-            game.PlayRound("Rock", "Scissors");
+            game.PlayRound(Player.Rock, Player.Scissors);
+            game.PlayRound(Player.Rock, Player.Scissors);
 
             var result = listener.Winner;
             Assert.Equals(result, 1, "Player1 wins game");
