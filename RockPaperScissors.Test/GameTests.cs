@@ -8,10 +8,10 @@ namespace RockPaperScissors.Test
 
         private object[] Parameters_TestInvalidMovesNotCounted()
         {
-            return new[]
+            return new object[]
             {
-                (object) Player.Rock,
-                (object) Player.Scissors
+                Player.Rock,
+                Player.Scissors
             };
         }
 
@@ -34,10 +34,10 @@ namespace RockPaperScissors.Test
 
         private object[] Parameters_TestDrawsNotCounted()
         {
-            return new[]
+            return new object[]
             {
-                (object) Player.Rock,
-                (object) Player.Rock
+                Player.Rock,
+                Player.Rock
             };
         }
 
@@ -54,10 +54,10 @@ namespace RockPaperScissors.Test
 
         private object[] Parameters_TestPlayerTwoWinsGame()
         {
-            return new[]
+            return new object[]
             {
-                (object) Player.Rock,
-                (object) Player.Paper
+                Player.Rock,
+                Player.Paper
             };
         }
 
@@ -74,10 +74,10 @@ namespace RockPaperScissors.Test
 
         private object[] Parameters_TestPlayerOneWinsGame()
         {
-            return new[]
+            return new object[]
             {
-                (object) Player.Rock,
-                (object) Player.Scissors
+                Player.Rock,
+                Player.Scissors
             };
         }
 
