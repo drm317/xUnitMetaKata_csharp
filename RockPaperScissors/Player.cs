@@ -6,21 +6,15 @@
         public static Player Scissors;
         public static Player Rock;
         private Player _wins;
-        private string _hand;
 
         static Player()
         {
-            Scissors = new Player("Scissors");
-            Rock = new Player("Rock");
-            Paper = new Player("Paper");
+            Scissors = new Player();
+            Rock = new Player();
+            Paper = new Player();
             Rock._wins = Scissors;
             Paper._wins = Rock;
             Scissors._wins = Paper;
-        }
-
-        public Player(string hand)
-        {
-            _hand = hand;
         }
 
         public int PlayHands(Player player2)

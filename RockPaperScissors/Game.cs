@@ -14,8 +14,15 @@
         public void PlayRound(Player player1, Player player2)
         {
             var result = new Round().Play(player1, player2);
-            if (result == 1) _player1Score++;
-            if (result == 2) _player2Score++;
+            switch (result)
+            {
+                case 1:
+                    _player1Score++;
+                    break;
+                case 2:
+                    _player2Score++;
+                    break;
+            }
 
             if (_player1Score == 2) _listener.GameOver(1);
 
