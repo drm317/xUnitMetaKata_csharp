@@ -6,16 +6,15 @@ namespace RockPaperScissors.Test
     public class GameTests
     {
 
-        private object[] Parameters_TestInvalidMovesNotCounted()
+        private object[][] Parameters_TestInvalidMovesNotCounted()
         {
-            return new object[]
+            return new[]
             {
-                Player.Rock,
-                Player.Scissors
+                new object[] {Player.Rock, Player.Scissors, 0}
             };
         }
 
-        public void TestInvalidMovesNotCounted(Player player1, Player player2)
+        public void TestInvalidMovesNotCounted(Player player1, Player player2, int expectedResult)
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
@@ -29,19 +28,18 @@ namespace RockPaperScissors.Test
             }
 
             var result = listener.Winner;
-            Assert.Equals(result, 0, "Invalid moves not counted");
+            Assert.Equals(result, expectedResult, "Invalid moves not counted");
         }
 
-        private object[] Parameters_TestDrawsNotCounted()
+        private object[][] Parameters_TestDrawsNotCounted()
         {
-            return new object[]
+            return new[]
             {
-                Player.Rock,
-                Player.Rock
+                new object[] {Player.Rock, Player.Rock, 0}
             };
         }
 
-        public void TestDrawsNotCounted(Player player1, Player player2)
+        public void TestDrawsNotCounted(Player player1, Player player2, int expectedResult)
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
@@ -49,19 +47,18 @@ namespace RockPaperScissors.Test
             game.PlayRound(player1, player2);
 
             var result = listener.Winner;
-            Assert.Equals(result, 0, "Draw not counted");
+            Assert.Equals(result, expectedResult, "Draw not counted");
         }
 
-        private object[] Parameters_TestPlayerTwoWinsGame()
+        private object[][] Parameters_TestPlayerTwoWinsGame()
         {
-            return new object[]
+            return new[]
             {
-                Player.Rock,
-                Player.Paper
+                new object[] {Player.Rock, Player.Paper, 2}
             };
         }
 
-        public void TestPlayerTwoWinsGame(Player player1, Player player2)
+        public void TestPlayerTwoWinsGame(Player player1, Player player2, int expectedResult)
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
@@ -69,19 +66,18 @@ namespace RockPaperScissors.Test
             game.PlayRound(player1, player2);
 
             var result = listener.Winner;
-            Assert.Equals(result, 2, "Player2 wins game");
+            Assert.Equals(result, expectedResult, "Player2 wins game");
         }
 
-        private object[] Parameters_TestPlayerOneWinsGame()
+        private object[][] Parameters_TestPlayerOneWinsGame()
         {
-            return new object[]
+            return new[]
             {
-                Player.Rock,
-                Player.Scissors
+                new object[] {Player.Rock, Player.Scissors, 1}
             };
         }
 
-        public void TestPlayerOneWinsGame(Player player1, Player player2)
+        public void TestPlayerOneWinsGame(Player player1, Player player2, int expectedResult)
         {
             var listener = new SpyGameListener();
             var game = new Game(listener);
@@ -89,7 +85,7 @@ namespace RockPaperScissors.Test
             game.PlayRound(player1, player2);
 
             var result = listener.Winner;
-            Assert.Equals(result, 1, "Player1 wins game");
+            Assert.Equals(result, expectedResult, "Player1 wins game");
         }
     }
 }

@@ -8,7 +8,7 @@ namespace TestFramework
 
         public TestRunner(object testFixture)
         {
-            this._testFixture = testFixture;
+            _testFixture = testFixture;
         }
 
         public void RunAll()
@@ -24,14 +24,9 @@ namespace TestFramework
 
         private void InvokeTest(MethodInfo method)
         {
-            if (IsParameterised(method))
+            if (IsParameterisedTest(method))
             {
-                MethodInfo parametersMethod = _testFixture.GetType().GetMethod("Parameters_" + method.Name, BindingFlags.NonPublic | BindingFlags.Instance);
-                if (parametersMethod != null)
-                {
-                    object[] parameters = (object[]) parametersMethod.Invoke(_testFixture, null);
-                    method.Invoke(_testFixture, parameters);
-                }
+                InvokeParameterised(method);
             }
             else
             {
@@ -40,7 +35,19 @@ namespace TestFramework
             
         }
 
-        private bool IsParameterised(MethodInfo method)
+        private void InvokeParameterised(MethodBase method)
+        {
+            var parametersMethod = _testFixture.GetType()
+                .GetMethod("Parameters_" + method.Name, BindingFlags.NonPublic | BindingFlags.Instance);
+            if (parametersMethod == null) return;
+            var scenarios = (object[][]) parametersMethod.Invoke(_testFixture, null);
+            foreach (var parameters in scenarios)
+            {
+                method.Invoke(_testFixture, parameters);
+            }
+        }
+
+        private static bool IsParameterisedTest(MethodInfo method)
         {
             return method.GetParameters().Length > 0;
         }
