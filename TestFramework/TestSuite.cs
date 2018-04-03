@@ -32,7 +32,7 @@ namespace TestFramework
             }
         }
 
-        private bool IsTest(Type type)
+        private static bool IsTest(Type type)
         {
             return type.Name.EndsWith("Tests");
         }

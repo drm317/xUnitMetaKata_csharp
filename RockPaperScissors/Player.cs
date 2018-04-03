@@ -19,16 +19,8 @@
 
         public int PlayHands(Player player2)
         {
-            if (player2 == this)
-            {
-                return 0;
-            }
-            if (player2 == _wins)
-            {
-                return 1;
-            }
-
-            return 2;
+            if (player2 == this) return 0;
+            return player2 == _wins ? 1 : 2;
         }
     }
 }

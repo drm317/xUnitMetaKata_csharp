@@ -5,7 +5,6 @@ namespace RockPaperScissors.Test
 {
     public class GameTests
     {
-
         private object[][] Parameters_TestInvalidMovesNotCounted()
         {
             return new[]

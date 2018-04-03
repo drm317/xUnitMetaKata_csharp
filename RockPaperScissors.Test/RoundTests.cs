@@ -27,7 +27,7 @@ namespace RockPaperScissors.Test
             {
                 new object[] {Player.Rock, Player.Rock, 0},
                 new object[] {Player.Scissors, Player.Scissors, 0},
-                new object[] {Player.Paper, Player.Paper, 0},
+                new object[] {Player.Paper, Player.Paper, 0}
             };
         }
 
