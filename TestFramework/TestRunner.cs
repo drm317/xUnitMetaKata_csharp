@@ -17,12 +17,24 @@ namespace TestFramework
         {
             var methods = _testFixture.GetType().GetMethods();
             var beforeEachMethod = GetBeforeEachMethod(methods);
+            var afterEachMethod = GetAfterEachMethod(methods);
             foreach (var method in methods)
                 if (IsTest(method))
                 {
                     if (beforeEachMethod != null) beforeEachMethod.Invoke(_testFixture, null);
                     InvokeTest(method);
+                    if (afterEachMethod != null) afterEachMethod.Invoke(_testFixture, null);
                 }
+        }
+
+        private static MethodInfo GetAfterEachMethod(IEnumerable<MethodInfo> methods)
+        {
+            return methods.FirstOrDefault(IsAfterEachMethod);
+        }
+
+        private static bool IsAfterEachMethod(MethodInfo method)
+        {
+            return method.Name.Equals("AfterEach");
         }
 
         private static MethodInfo GetBeforeEachMethod(IEnumerable<MethodInfo> methods)
