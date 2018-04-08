@@ -14,6 +14,12 @@ namespace RockPaperScissors.Test
             _game = new Game(_listener);
         }
 
+        public void AfterEach()
+        {
+            _listener = null;
+            _game = null;
+        }
+
         private object[][] Parameters_TestInvalidMovesNotCounted()
         {
             return new[]
