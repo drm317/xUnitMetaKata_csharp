@@ -29,7 +29,7 @@ namespace TestFramework
 
         public static void WriteTestResult(string testResultMessage, int result, int expected, string testCase)
         {
-            Console.WriteLine("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
+            Console.WriteLine(testResultMessage, result, expected, testCase);
         }
     }
 }
