@@ -17,7 +17,7 @@ namespace TestFramework
         {
             RunTestFixtures();
 
-            TestResults.ShowResults();
+            TestResults.WriteResultSummary();
         }
 
         private void RunTestFixtures()

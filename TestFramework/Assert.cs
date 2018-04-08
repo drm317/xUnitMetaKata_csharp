@@ -9,12 +9,12 @@ namespace TestFramework
             if (expectedException == exception)
             {
                 TestResults.AddTestsPassed();
-                Console.WriteLine("{0}: PASS", testCase);
+                TestResults.WriteTestResult("{0}: PASS", testCase);
             }
             else
             {
                 TestResults.AddTestsFailed();
-                Console.WriteLine("{0}: FAIL - expected InvalidMoveException", testCase);
+                TestResults.WriteTestResult("{0}: FAIL - expected InvalidMoveException", testCase);
             }
         }
 
@@ -23,12 +23,12 @@ namespace TestFramework
             if (result == expected)
             {
                 TestResults.AddTestsPassed();
-                Console.WriteLine("{0}: PASS", testCase);
+                TestResults.WriteTestResult("{0}: PASS", testCase);
             }
             else
             {
                 TestResults.AddTestsFailed();
-                Console.WriteLine("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
+                TestResults.WriteTestResult("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
             }
         }
     }

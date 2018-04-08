@@ -17,9 +17,19 @@ namespace TestFramework
             _testsPassed++;
         }
 
-        public static void ShowResults()
+        public static void WriteResultSummary()
         {
             Console.WriteLine("Tests run: {0}  Passed: {1}  Failed: {2}", _testsPassed + _testsFailed, _testsPassed, _testsFailed);
+        }
+
+        public static void WriteTestResult(string testResultMessage, string testCase)
+        {
+            Console.WriteLine(testResultMessage, testCase);
+        }
+
+        public static void WriteTestResult(string testResultMessage, int result, int expected, string testCase)
+        {
+            Console.WriteLine("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
         }
     }
 }
