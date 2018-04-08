@@ -6,14 +6,10 @@ namespace TestFramework
 {
     public class TestSuite
     {
-        private static int _testsPassed;
-        private static int _testsFailed;
         private readonly Assembly _assembly;
 
         public TestSuite(Assembly assembly)
         {
-            _testsFailed = 0;
-            _testsPassed = 0;
             _assembly = assembly;
         }
 
@@ -21,7 +17,7 @@ namespace TestFramework
         {
             RunTestFixtures();
 
-            Console.WriteLine("Tests run: {0}  Passed: {1}  Failed: {2}", _testsPassed + _testsFailed, _testsPassed, _testsFailed);
+            TestResults.ShowResults();
         }
 
         private void RunTestFixtures()
@@ -36,17 +32,5 @@ namespace TestFramework
         {
             return type.Name.EndsWith("Tests");
         }
-
-        public static void AddTestsFailed()
-        {
-            _testsFailed++;
-        }
-
-        public static void AddTestsPassed()
-        {
-            _testsPassed++;
-        }
-
-
     }
 }

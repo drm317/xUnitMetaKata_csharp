@@ -8,12 +8,12 @@ namespace TestFramework
         {
             if (expectedException == exception)
             {
-                TestSuite.AddTestsPassed();
+                TestResults.AddTestsPassed();
                 Console.WriteLine("{0}: PASS", testCase);
             }
             else
             {
-                TestSuite.AddTestsFailed();
+                TestResults.AddTestsFailed();
                 Console.WriteLine("{0}: FAIL - expected InvalidMoveException", testCase);
             }
         }
@@ -22,12 +22,12 @@ namespace TestFramework
         {
             if (result == expected)
             {
-                TestSuite.AddTestsPassed();
+                TestResults.AddTestsPassed();
                 Console.WriteLine("{0}: PASS", testCase);
             }
             else
             {
-                TestSuite.AddTestsFailed();
+                TestResults.AddTestsFailed();
                 Console.WriteLine("{2}: FAIL - expected {1} but was {0}", result, expected, testCase);
             }
         }
