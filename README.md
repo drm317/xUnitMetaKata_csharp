@@ -1,8 +1,8 @@
-# Forked from jasongorman/xUnitMetaKata_csharp
+Forked from jasongorman/xUnitMetaKata_csharp
 
-# C# Kata:
+## C# Kata:
 
-# Solution by Daniel Marlow
+## Solution by Daniel Marlow
 
 --------------------------------------------------------------
 
