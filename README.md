@@ -1,6 +1,9 @@
 Forked from jasongorman/xUnitMetaKata_csharp
 
-Solution: branch   daniel-attempt
+C# solution:
+
+Developed by Daniel Marlow
+
 --------------------------------------------------------------
 
 
