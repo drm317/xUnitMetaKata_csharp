@@ -1,11 +1,10 @@
-# xUnitMetaKata_csharp
-
 Forked from jasongorman/xUnitMetaKata_csharp
 
 Solution: branch   daniel-attempt
 --------------------------------------------------------------
 
 
+# xUnitMetaKata_csharp
 
 This is the C# code as a starting point for my xUnit meta-kata.
 
