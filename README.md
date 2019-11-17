@@ -1,6 +1,6 @@
 Forked from jasongorman/xUnitMetaKata_csharp
 
-C# solution:
+C# Kata:
 
 Developed by Daniel Marlow
 
