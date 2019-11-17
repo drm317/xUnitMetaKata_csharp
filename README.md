@@ -2,8 +2,7 @@ Forked from jasongorman/xUnitMetaKata_csharp
 
 ### C# Kata:
 
-### Solution by Daniel Marlow (daniel-attempt branch)
-
+### Solution by Daniel Marlow 
 --------------------------------------------------------------
 
 
