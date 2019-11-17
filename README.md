@@ -4,6 +4,9 @@ Forked from jasongorman/xUnitMetaKata_csharp
 
 Solution: branch   daniel-attempt
 --------------------------------------------------------------
+
+
+
 This is the C# code as a starting point for my xUnit meta-kata.
 
 Your goal is to refactor the nasty IF-heavy implementation of classes that score a game of Rock, Paper, Scissors.
